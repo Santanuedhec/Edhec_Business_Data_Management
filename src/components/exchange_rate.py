@@ -55,11 +55,11 @@ def convert_price_to_eur(price, currency, exchange_rates):
     :return: Converted price in EUR.
     """
     try:
-        # Convert non-numeric prices to NaN and replace with 0
+        
         price = pd.to_numeric(price, errors="coerce")
         if pd.isna(price) or price is None:
             logger.error(f" Invalid price: {price}. Must be a numeric value. Defaulting to 0.")
-            return 0  # Ensures non-numeric values don’t break conversion
+            return 0  
 
         if currency in exchange_rates:
             converted_price = round(price / exchange_rates[currency], 2)
@@ -67,10 +67,10 @@ def convert_price_to_eur(price, currency, exchange_rates):
             return converted_price
         else:
             logger.warning(f" Currency {currency} not found in exchange rates. Defaulting to 0 EUR.")
-            return 0  # Ensures missing currency doesn’t return an incorrect value
+            return 0  
     except Exception as e:
         logger.error(f" Error converting currency: {e}")
-        return 0  # Fails safely
+        return 0 
 
 
 # Self-Test Code (for debugging)

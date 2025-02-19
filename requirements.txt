@@ -2,4 +2,9 @@ pandas
 numpy
 seaborn
 python-dotenv
--e .
+requests
+google-cloud-bigquery
+google-auth
+google-api-core
+gcloud
+#-e .
